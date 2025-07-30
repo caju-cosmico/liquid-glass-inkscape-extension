@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Liquid Glass Effect</name>
+  <id>com.caju-cosmico.liquid_glass</id>
+
+  <param name="tabs" type="notebook">
+    <page name="glass_tab" _gui-text="Glass Distortion">
+      <param name="bg_id" type="string" _gui-text="Background object ID"/>
+      <param name="normal-map_offset" type="float" min="0" max="100" default="5" appearance="full" _gui-text="Depth:"/>
+      <param name="normal-map_softness" type="float" min="0" max="100" default="2.5" appearance="full" _gui-text="Softness:"/>
+      <param name="displacement_map" type="float" min="-200" max="200" default="80" appearance="full" _gui-text="Refraction:"/>
+      <param name="glass_blur" type="float" min="0" max="100" default="3" appearance="full" _gui-text="Glass blur:"/>
+    </page>
+
+    <page name="highlights_shadows_tab" _gui-text="Highlights and Inner Shadow">
+      <param name="highlights_header" type="description" _gui-text="Highlight Settings"/>
+      <param name="highlight_angle" type="float" min="0" max="360" default="45" appearance="full" _gui-text="Light angle:"/>
+      <param name="highlight_intensity" type="float" min="0" max="100" default="80" appearance="full" _gui-text="Highlight intensity:"/>
+      <param name="highlight_softness" type="float" min="0" max="100" default="2" appearance="full" _gui-text="Highlight softness:"/>
+      <param name="highlight_size" type="float" min="0" max="100" default="2" appearance="full" _gui-text="Highlight size:"/>
+
+      <param name="shadows_header" type="description" _gui-text="Shadow Settings"/>
+      <param name="inner_shadow_opacity" type="float" min="0" max="100" default="20" appearance="full" _gui-text="Inner shadow opacity:"/>
+      <param name="inner_shadow_blur" type="float" min="0" max="100" default="20" appearance="full" _gui-text="Inner shadow blur:"/>
+      <param name="inner_shadow_offset" type="float" min="-100" max="100" default="40" appearance="full" _gui-text="Inner shadow offset:"/>
+    </page>
+
+    <page name="glass_color_tab" _gui-text="Glass Color">
+      <param name="bg_color" type="color" default="#000000" _gui-text="Background color:"/>
+    </page>
+
+    <page name="drop_shadow_tab" _gui-text="Drop Shadow">
+      <param name="drop_shadow_color" type="color" _gui-text="Shadow color:"/>
+      <param name="drop_shadow_blur" type="float" min="0" max="100" default="20" appearance="full" _gui-text="Shadow blur:"/>
+      <param name="drop_shadow_offset_x" type="float" min="-100" max="100" default="10" appearance="full" _gui-text="Shadow offset X:"/>
+      <param name="drop_shadow_offset_y" type="float" min="-100" max="100" default="10" appearance="full" _gui-text="Shadow offset Y:"/>
+    </page>
+  </param>
+  
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Liquid Glass"/>
+    </effects-menu>
+  </effect>
+
+  <script>
+    <command location="inx" interpreter="python">liquid_glass.py</command>
+  </script>
+  
+  <description>
+    <p>Applies a liquid glass effect to the selected object.</p>
+    <p>The effect simulates light refraction and reflection through a glass-like material, creating a fluid and distorted appearance.</p>
+  </description>
+
+  <license type="MIT">MIT</license>
+</inkscape-extension>       
